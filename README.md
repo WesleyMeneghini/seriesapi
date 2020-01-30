@@ -1,0 +1,2 @@
+# seriesapi
+API de séries
