@@ -114,7 +114,6 @@ series = (app) => {
             })
 
     })
-
 }
 
 module.exports = series;

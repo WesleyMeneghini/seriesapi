@@ -14,7 +14,10 @@
     "consign": "^0.1.6",
     "express": "^4.17.1",
     "express-validator": "^6.3.1",
+<<<<<<< HEAD
     "jsonwebtoken": "^8.5.1",
+=======
+>>>>>>> aceab80f10f200a7655275dfa0ea96f0ee46e3d0
     "mysql": "^2.18.1"
   },
   "devDependencies": {

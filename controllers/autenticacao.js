@@ -14,6 +14,7 @@ autenticacao = (app) => {
     app.post('/registrar', 
     [
         UsuarioValidator.validacoes()
+
     ], 
     (req, res) => {
 
@@ -62,6 +63,7 @@ autenticacao = (app) => {
             res.status(500).send(error)
         }
     })
+
 }
 
 module.exports = autenticacao;

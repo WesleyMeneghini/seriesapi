@@ -22,8 +22,8 @@ class Usuarios {
 
             conexao.query(sql, email, (erro, retorno) => {
                 if (erro) reject('Erro ao consultar email: ' + erro)
-                else {
-                    resolve(retorno[0])
+                else {                    
+                    resolve(retorno[0])                
                 }
             })
         })
