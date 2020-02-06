@@ -9,13 +9,10 @@ module.exports = {
 
     async listar(req, res){
 
-        // console.log('teste')
-
         try {
             const lista = await seriesDao.lista()
-            console.log('teste2')
             
-            if (!lista.isEmpty()) {
+            if (lista) {
                 return res.send(lista)
             } else {
                 return res.status(404).send('Lista vazia')
@@ -45,7 +42,8 @@ module.exports = {
         const { id } = req.params
 
         try {
-            const serie = await seriesDao.buscaPorId(id)
+            let serie = await seriesDao.buscaPorId(id)
+            serie = serie[0]
 
             if (!serie) {
                 return res.status(404).send({erro: 'erro ao buscar'})
@@ -67,7 +65,7 @@ module.exports = {
             if (!retorno.affectedRows) {
                 return res.status(404).send({erro: 'Serie nao encontrada'})
             } else {
-                return res.send(retorno)
+                return res.send(serie)
             }
         } catch (error) {
             console.log('Erro ao deletar a série: ' + erro)
@@ -76,16 +74,17 @@ module.exports = {
     },
 
     async delete(req, res){
+
         const { id } = req.params
-        const seriesDao = app.models.Series
 
         const retorno = await seriesDao.delete(id)
 
         try {
             if(!retorno.affectedRows){
                 return res.status(404).send({erro: 'Serie nao encontrada'})
+            }else{
+                return res.status(204).send()
             }
-            return res.status(204).send()
         } catch (error) {
             console.log('Erro ao deletar a série: ' + error)
             return res.status(500).send({erro: 'erro ao deletar serie'})

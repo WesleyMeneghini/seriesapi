@@ -11,7 +11,7 @@ class Series {
     }
 
     buscaPorId(id){
-        return baseQuery('SELECT * FROM series WHERE id = ?')
+        return baseQuery('SELECT * FROM series WHERE id = ?', id)
     }
     delete(id){
         return baseQuery('DELETE FROM series WHERE id = ?', id)
