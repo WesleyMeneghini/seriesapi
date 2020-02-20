@@ -52,9 +52,7 @@ module.exports = {
             if(!await bcrypt.compare(senha, usuario.senha)) 
                 return res.status(400).send({erro: "Senha invalida"})
 
-            const token = "akdljkljdad6a65d65a45d45asdslkdksdjkjsd$%wejwk";
-            console.log({token: token})
-
+            delete usuario.senha
             res.send({
                 usuario, 
                 token: gerarToken({id: usuario.id})

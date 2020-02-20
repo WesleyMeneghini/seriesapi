@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 const authMidd = require('./middlewares/auth')
+const cors = require('cors')
 
+app.use(cors())
 app.use(express.json())
 
 let allowCrossDomais = (req, res, next) => {
