@@ -6,14 +6,14 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json())
 
-let allowCrossDomais = (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Headers', '*')
-    res.header('Access-Control-Allow-Methods', '*')
-    next()
-}
+// let allowCrossDomais = (req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*')
+//     res.header('Access-Control-Allow-Headers', '*')
+//     res.header('Access-Control-Allow-Methods', '*')
+//     next()
+// // }
 
-app.use(allowCrossDomais)
+// app.use(allowCrossDomais)
 
 const auth = require('./routes/authRoutes')
 const series = require('./routes/seriesRoutes')
