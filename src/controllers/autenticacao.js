@@ -6,7 +6,7 @@ const usuarioDao = new (require('../models/Usuarios'))()
 const authConfig = require('../config/auth')
 
 gerarToken = (params) => {
-    return jwt.sign(params, authConfig.secret, { expiresIn: 900 })
+    return jwt.sign(params, authConfig.secret, { expiresIn: 9000 })
 }
 
 module.exports = {
