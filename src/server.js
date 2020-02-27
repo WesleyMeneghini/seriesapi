@@ -17,11 +17,12 @@ app.use(express.json())
 
 const auth = require('./routes/authRoutes')
 const series = require('./routes/seriesRoutes')
+const generos = require('./routes/generosRoutes')
 
 app.use('/auth', auth)
 
 app.use(authMidd)
-
+app.use('/generos', generos)
 app.use('/series', series)
 
 module.exports = app
